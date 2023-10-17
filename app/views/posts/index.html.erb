@@ -1,0 +1,35 @@
+<div class="step1">
+ MSP
+</div>
+
+<div class="step2">
+ <%= form_tag({controller:"posts",action:"index"}, method: :get) do %>
+   <%= text_field_tag :search %>
+   <%= submit_tag 'アーティストを探す'  %>
+ <% end %>
+</div>
+
+<%= form_tag({controller:"posts",action:"index"}, method: :get) do %>
+  <% Tag.all.each do |t| %>
+      <li><%= check_box :tag_ids, t.name %><%= t.name %></li>
+  <% end %>
+  <%= submit_tag '検索' %>
+<% end %>
+
+<%= link_to "新規投稿へ", new_post_path %>
+<div class="posts-container">
+  <% @posts.each do |t| %>
+    <div class="post">
+    <%= image_tag t.image_url, size: "250x200" if t.image? %>
+      <iframe width="224" height="126" src="https://www.youtube.com/embed/<%= find_youtube_url(t.youtube_url) %>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      <%= t.who %>
+      <%= t.music %>
+      <%= t.content %>
+      <% t.tags.each do |tag| %>
+      #<%= tag.name %>
+      <% end %>
+    </div>
+  <% end %>
+</div>
+
+<%= link_to "新規投稿へ", new_post_path %>

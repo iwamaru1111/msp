@@ -1,0 +1,25 @@
+.step1{font-size: large;
+    display: table-cell;
+    font-weight: bold;
+    font-size: 30px;
+    vertical-align: middle;
+    height: 5vmax;
+    color:deepskyblue;
+    letter-spacing:0.2em;;
+    padding-left:2em;}
+
+.step2{display: flex;
+    justify-content: right;
+    align-items: center;     /*上下中央揃え*/
+    padding-right: 30px;
+    height: 50px;
+    text-align:right;
+    background-color:aquamarine;}
+
+.post{margin-left: 60px;
+    margin-top: 20px;
+    margin-right: 50px;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom:solid
+    #87cefa 1px;}
