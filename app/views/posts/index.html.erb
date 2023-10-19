@@ -20,7 +20,6 @@
 <div class="posts-container">
   <% @posts.each do |t| %>
     <div class="post">
-    <%= image_tag t.image_url, size: "250x200" if t.image? %>
       <iframe width="224" height="126" src="https://www.youtube.com/embed/<%= find_youtube_url(t.youtube_url) %>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
       <%= t.who %>
       <%= t.music %>
