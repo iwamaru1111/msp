@@ -48,6 +48,10 @@ class PostsController < ApplicationController
         end
       end
     
+def top
+  
+end
+
       private
       def post_params
         params.require(:post).permit(:image, :youtube_url, :who, :music, :content, tag_ids: [])
