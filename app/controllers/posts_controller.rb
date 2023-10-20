@@ -1,38 +1,27 @@
 class PostsController < ApplicationController
 
-    def index
-      
-        if params[:search] == nil
-            @posts= Post.all
-          elsif params[:search] == ''
-            @posts= Post.all
-          else
-            #部分検索
-            @posts = Post.where("who LIKE ? ",'%' + params[:search] + '%')
-          end
-        if params[:tag_ids]
-            @posts = []
-            params[:tag_ids].each do |key, value|      
-              @posts += Tag.find_by(name: key).posts if value == "1"
-            end
-            @posts.uniq!
-        end
-        
-        # 以下を追記
-        if params[:tag_ids]
-          @posts = []
-          params[:tag_ids].each do |key, value|
-            if value == "1"
-              tag_posts = Tag.find_by(name: key).posts
-              @posts = @posts.empty? ? tag_posts : @posts & tag_posts
-            end
-          end
-        end
+  before_action :authenticate_user!, only: [:new, :create, :index]
 
-        if params[:tag]
-          Tag.create(name: params[:tag])
+  def index
+    @posts= Post.all
+    @tags = Tag.all
+    @posts = @posts.where("who LIKE ? ",'%' + params[:search] + '%') if params[:search].present?
+    #もしタグ検索したら、post_idsにタグを持ったidをまとめてそのidで検索
+    if params[:tag_ids].present?
+      post_ids = []
+      params[:tag_ids].each do |key, value| 
+        if value == "1"
+          Tag.find_by(name: key).posts.each do |p| 
+            post_ids << p.id
+          end
         end
+      end
+      post_ids = post_ids.uniq
+      #キーワードとタグのAND検索
+      @posts = @posts.where(id: post_ids) if post_ids.present?
     end
+  end
+  
     
     #追加箇所
       def new

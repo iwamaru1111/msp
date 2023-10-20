@@ -1,34 +1,32 @@
-<div class="step1">
- MSP
-</div>
-
-<div class="step2">
- <%= form_tag({controller:"posts",action:"index"}, method: :get) do %>
-   <%= text_field_tag :search %>
-   <%= submit_tag 'アーティストを探す'  %>
- <% end %>
-</div>
-
 <%= form_tag({controller:"posts",action:"index"}, method: :get) do %>
+  <div class="step2"></div>
+   <div class="atisutomei"><%= text_field_tag :search,'', placeholder: "アーティスト名を入力" %></div>
+  <div class="step3">
   <% Tag.all.each do |t| %>
-      <li><%= check_box :tag_ids, t.name %><%= t.name %></li>
+    <div class="sstep0"><%= check_box :tag_ids, t.name %><%= t.name %></div>
   <% end %>
+  </div>
+  <div class="step4">
   <%= submit_tag '検索' %>
+  </div>
 <% end %>
 
-<%= link_to "新規投稿へ", new_post_path %>
 <div class="posts-container">
   <% @posts.each do |t| %>
     <div class="post">
       <iframe width="224" height="126" src="https://www.youtube.com/embed/<%= find_youtube_url(t.youtube_url) %>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-      <%= t.who %>
-      <%= t.music %>
-      <%= t.content %>
-      <% t.tags.each do |tag| %>
-      #<%= tag.name %>
-      <% end %>
+        <div>
+          <div class="who"><%= t.who %></div>
+          <div class="music"><%= t.music %></div>
+          <div class="content"><%= t.content %></div>
+          <div class="tag"> 
+            <% t.tags.each do |tag| %>
+            #<%= tag.name %>
+            <% end %>
+          </div>
+        </div>
     </div>
   <% end %>
 </div>
 
-<%= link_to "新規投稿へ", new_post_path %>
+<div class="link2"><%= link_to "曲を共有する", new_post_path %></div>

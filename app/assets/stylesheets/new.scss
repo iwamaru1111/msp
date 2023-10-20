@@ -1,33 +1,59 @@
-body {margin: 0;
-    width: 100vw;
-    height: 100vh;
-    background-color:antiquewhite;}
-
-.version1{font-size: large;
-    display: table-cell;
-    font-weight: bold;
-    font-size: 30px;
-    vertical-align: middle;
-    height: 5vmax;
-    color:deepskyblue;
-    letter-spacing:0.2em;;
-    padding-left:2em;}
-
-.version2{font-family:"MS 明朝";
-    font-weight: 500;
+.version2{
     display: flex;
     justify-content: right;
-    font-size: 15px;
     align-items: center;     /*上下中央揃え*/
-    padding-right: 65px;
+    padding-right: 60px;
     height: 50px;
     text-align:right;
-    background-color:aquamarine;}
+    background-color:aquamarine;
+}
 
-.field{margin-top: 15px;
-    margin-bottom: 15px;
-    margin-left: 60px;}
+.link01{
+    margin-right: 40px;
+}
 
-.version3{margin-top: 15px;
+.link02{
+    margin-right: 40px;
+}
+
+.field{
+    display: flex;
+    margin-top: 15px;
     margin-bottom: 15px;
-    text-align: center;}
+    margin-left: 60px;
+}
+
+.field1{
+    vertical-align:top;
+    width: 93px;
+}
+
+.form-group{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.form-check{
+    margin-right : 10px;
+}
+
+.version3{
+    margin-top: 15px;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.version4{
+    margin-top: 30px;
+    margin-left: 60px;
+    margin-bottom: 30px;
+}
+
+.version3 input[type="submit"] {
+    width: 175px;
+    height: 30px;
+    font-size: 17px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}  

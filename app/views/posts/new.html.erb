@@ -1,31 +1,29 @@
-<div class="version1">
- MSP
-</div>
-
 <div class="version2">
-新規投稿ページ
+  <div class="link01"><%= link_to 'TOP', :controller => "posts", :action => "top" %></div>
+  <div class="link02"><%= link_to '曲を共有', :controller => "posts", :action => "new" %></div>
+  <%= link_to '曲を探す', :controller => "posts", :action => "index" %>
 </div>
 
 <%= form_for @post do |f| %>
 
 <div class="field">
-    <%= f.label :歌手名 %>
+  <div class="field1"><%= f.label :歌手名 %></div>
     <%= f.text_field :who, :size => 30 %>
 </div>
 
 <div class="field">
-  <%= f.label :曲名 %>
-  <%= f.text_field :music, :size => 30 %>
+  <div class="field1"><%= f.label :曲名 %></div>
+    <%= f.text_field :music, :size => 30 %>
 </div>
 
 <div class="field">
-   <%= f.label :詳細 %>
-   <%= f.text_field :content, :size => 30 %>
+  <div class="field1"><%= f.label :説明 %></div>
+    <%= f.text_area :content, :size => "100x2" %>
 </div>
 
 <div class="field">
-  <%= f.label :youtube_url %>
-  <%= f.text_field :youtube_url, :size => 140 %>
+  <div class="field1"><%= f.label :youtube_url %></div>
+    <%= f.text_field :youtube_url, :size => 140 %>
 </div>
 
 <div class='form-group'>
@@ -40,8 +38,8 @@
 </div>
 
 <div class='version3'>
-  <%= f.submit "　　投稿する　　" %>
+  <%= f.submit "共有する" %>
  <% end %>
 </div>
 
-<%= link_to "一覧に戻る", posts_path %>
+<div class='version4'><%= link_to "曲を探す", posts_path %></div>

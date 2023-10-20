@@ -13,3 +13,38 @@
  *= require_tree .
  *= require_self
  */
+
+ .hheader1{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 30px ;
+    font-weight: bold;
+    height: 6vmax;
+    color: deepskyblue;
+    letter-spacing: 0.2em ;
+    margin-left: 60px;
+}
+
+.hheader2{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 17px ;
+    font-weight: normal;
+    height: 3vmax;
+    letter-spacing: 0.1em ;
+}
+
+.logout{
+    margin-right: 60px;
+}
+
+.link1{
+    margin-right: 60px;
+    display: flex;
+}
+
+.llink1{
+    margin-right: 50px;
+}

@@ -10,6 +10,29 @@
   </head>
 
   <body>
+    <header>
+        <div class="hheader1">
+         MSP
+          <div class="hheader2">
+            <ul>
+              <% if user_signed_in? %>
+                <div class="logout"><%= button_to 'ログアウト', destroy_user_session_path, method: :delete %></div>
+              <% else %>
+              <div class="link1">
+                <div class="llink1"><%= link_to "新規登録", new_user_registration_path %></div>
+                <%= link_to "ログイン", new_user_session_path %>
+              <% end %>
+              </div>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </header>
+
     <%= yield %>
+
+      <footer>
+        <p>Music Shere Platform</p>
+      </footer>
   </body>
 </html>
